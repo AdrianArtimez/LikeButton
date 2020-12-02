@@ -250,12 +250,12 @@ public class LikeButton extends FrameLayout implements View.OnClickListener {
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                /*
-                Commented out this line and moved the animation effect to the action up event due to
-                conflicts that were occurring when library is used in sliding type views.
 
-                icon.animate().scaleX(0.7f).scaleY(0.7f).setDuration(150).setInterpolator(DECCELERATE_INTERPOLATOR);
+                /*Commented out this line and moved the animation effect to the action up event due to
+                conflicts that were occurring when library is used in sliding type views.
                 */
+                icon.animate().scaleX(0.7f).scaleY(0.7f).setDuration(150).setInterpolator(DECCELERATE_INTERPOLATOR);
+
                 setPressed(true);
                 break;
 
@@ -269,7 +269,6 @@ public class LikeButton extends FrameLayout implements View.OnClickListener {
                 break;
 
             case MotionEvent.ACTION_UP:
-                icon.animate().scaleX(0.7f).scaleY(0.7f).setDuration(150).setInterpolator(DECCELERATE_INTERPOLATOR);
                 icon.animate().scaleX(1).scaleY(1).setInterpolator(DECCELERATE_INTERPOLATOR);
                 if (isPressed()) {
                     performClick();
@@ -277,6 +276,7 @@ public class LikeButton extends FrameLayout implements View.OnClickListener {
                 }
                 break;
             case MotionEvent.ACTION_CANCEL:
+                icon.animate().scaleX(1).scaleY(1).setInterpolator(DECCELERATE_INTERPOLATOR);
                 setPressed(false);
                 break;
         }
